@@ -794,7 +794,7 @@ footer.site-footer::before{
 .book-card.is-hidden{ display:none; }
 
 .book-cover{
-  position:relative; aspect-ratio: 2 / 3; border-radius: var(--radius); overflow:hidden;
+  position:relative; aspect-ratio: 2 / 3; border-radius: 0; overflow:hidden;
   background: var(--book-bg, var(--grad-sunset-deep));
   padding: 1.6rem 1.4rem;
   display:flex; flex-direction:column; justify-content:space-between;
