@@ -867,3 +867,63 @@ footer.site-footer::before{
 .book-genre{ font-family: var(--mono); font-size: 0.68rem; text-transform:uppercase; letter-spacing: 0.05em; color: var(--paper-dim); }
 
 .library-note{ font-size: 0.85rem; color: var(--paper-dim); margin-top: 1.4rem; }
+/* ==========================================================================
+   NEW BOOK LAUNCH POPUP (homepage)
+   ========================================================================== */
+.launch-popup-overlay{
+  position: fixed; inset:0; z-index: 500;
+  background: rgba(46,27,42,0.55);
+  backdrop-filter: blur(4px);
+  display:flex; align-items:center; justify-content:center;
+  padding: 1.2rem;
+  opacity:0; pointer-events:none;
+  transition: opacity .35s ease;
+}
+.launch-popup-overlay.show{ opacity:1; pointer-events:auto; }
+.launch-popup{
+  position: relative;
+  display:flex; gap:1.4rem; align-items:stretch;
+  max-width: 480px; width:100%;
+  background: linear-gradient(165deg, #FFF9F2, #FFEEDD);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 70px rgba(46,27,42,0.4);
+  padding: 1.5rem;
+  transform: translateY(24px) scale(0.96);
+  transition: transform .4s var(--ease);
+}
+.launch-popup-overlay.show .launch-popup{ transform: translateY(0) scale(1); }
+.launch-popup-cover{
+  flex: 0 0 118px; border-radius: var(--radius-sm); overflow:hidden;
+  box-shadow: 0 10px 24px rgba(73,49,41,0.25);
+}
+.launch-popup-cover img{ width:100%; height:100%; object-fit:cover; display:block; }
+.launch-popup-body{ display:flex; flex-direction:column; justify-content:center; gap:0.45rem; }
+.launch-popup-body .eyebrow{ align-self:flex-start; }
+.launch-popup-body h3{ font-size: 1.18rem; margin: 0.15em 0 0; }
+.launch-popup-body p{ font-size: 0.86rem; margin:0; }
+.launch-popup-actions{ margin-top: 0.4rem; }
+.launch-popup-close{
+  position:absolute; top:0.6rem; right:0.6rem;
+  width: 30px; height:30px; border-radius:50%;
+  border:none; background: rgba(73,49,41,0.08);
+  color: var(--paper); font-size: 1.3rem; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition: background .25s ease, transform .25s ease;
+}
+.launch-popup-close:hover{ background: var(--grad-sunset-deep); color: var(--on-dark); transform: rotate(90deg); }
+@media (max-width: 520px){
+  .launch-popup{ flex-direction:column; text-align:center; padding: 1.6rem 1.3rem; }
+  .launch-popup-cover{ flex-basis:auto; height:170px; margin:0 auto; width:128px; }
+  .launch-popup-body{ align-items:center; }
+  .launch-popup-body .eyebrow{ align-self:center; }
+}
+
+/* ---------- "Latest Launch" ribbon on a library book cover ---------- */
+.book-badge{
+  position:absolute; top:16px; left:-6px; z-index:3;
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing:0.08em; text-transform:uppercase;
+  color: var(--on-dark); background: var(--grad-sunset-deep);
+  padding: 0.42em 0.9em 0.42em 1em;
+  box-shadow: 0 6px 14px rgba(73,49,41,0.32);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 70%);
+}
