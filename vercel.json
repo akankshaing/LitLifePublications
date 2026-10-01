@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/home.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/readers.html",
+      "destination": "/community.html",
+      "permanent": true
+    }
+  ]
+}
